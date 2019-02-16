@@ -80,14 +80,17 @@ function downloadTwitterImages(tweet, tosavepath) {
     });
 }
 
+// initalize
 function init() {
-    tagString=tags.map((str)=>str.trim()).join(',');
+    // create dir name using twiiter tags
+    tagString = tags.map((str)=>str.trim()).join(',');
     directryName = getDirName(tagString)+'/';
     newDirpath = makepath(directryName);
     
     console.log('newDirpath',newDirpath);
     const stream = twitter.stream('statuses/filter', { track:tagString } );
 
+    // start socket caller
     io.on('connect', function(socket) {
         stream.on('tweet', function (tweet) {
             downloadTwitterImages(tweet, newDirpath);

@@ -30,13 +30,18 @@ const twitter = new Twit({
 wordsArray=[]
 
 tags = [
-    'news'
+    'forexnews','forex','fx',
+    // 'gbpusd','gbp/usd','GBP/USD','GBPUSD',
+    // 'gbpjpy','gbp/jpy','GBP/JPY','GBPJPY',
+    'eurusd','eur/usd','EUR/USD','EURUSD',
+    'eurgbp','eur/gbp',
 ];
 
 // Get the image directry name
 function getDirName(tagString) {
-    return tagString.toLowerCase().split(',')
-            .map((s) => s.charAt(0).toUpperCase() + s.substring(1)).join('');
+    return tagsArray = tagString.toLowerCase().split(',')
+    .map(tag =>tag.replace('/',''))
+    .map((s) => s.charAt(0).toUpperCase() + s.substring(1)).join('');            
 }
 
 // given uri  download image  and save loacal

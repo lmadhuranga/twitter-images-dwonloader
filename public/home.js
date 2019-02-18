@@ -10,7 +10,7 @@ function loadimage(tweet) {
     imageLinks =''
     if(tweet.entities.media!=undefined) {
         tweet.entities.media.forEach(image => {
-            imageLinks += `<img src="${tweet.entities.media[0].media_url}" class="avatar pull-right" style="padding:10px;"/>`
+            imageLinks += `<a href="${tweet.entities.media[0].media_url}:large" target="_blank"><img src="${tweet.entities.media[0].media_url}:thumb" class="avatar pull-right"/></a>`
         });
         
     }
